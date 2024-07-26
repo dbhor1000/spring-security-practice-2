@@ -1,8 +1,8 @@
-package com.stephanodev.springsecurity.authentication;
+package com.jcpractice.springsecurity.authentication;
 
-import com.stephanodev.springsecurity.config.JwtService;
-import com.stephanodev.springsecurity.user.User;
-import com.stephanodev.springsecurity.user.UserRepository;
+import com.jcpractice.springsecurity.config.JwtService;
+import com.jcpractice.springsecurity.user.User;
+import com.jcpractice.springsecurity.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

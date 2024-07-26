@@ -1,10 +1,10 @@
-package com.stephanodev.springsecurity.config;
+package com.jcpractice.springsecurity.config;
 
-import com.stephanodev.springsecurity.user.User;
+import com.jcpractice.springsecurity.user.User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.crypto.JwtSigner;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,6 +50,13 @@ public class JwtService {
         return Jwts.parserBuilder().setSigningKey(generateKey()).build()
                 .parseClaimsJws(jwt).getBody();
     }
-
+    public boolean isTokenExpired(String jwt) {
+        try {
+            Claims claims = extractAllClaims(jwt);
+            return claims.getExpiration().before(new Date());
+        } catch (ExpiredJwtException e) {
+            return true;
+        }
+    }
 
 }

@@ -1,6 +1,6 @@
-package com.stephanodev.springsecurity.config;
+package com.jcpractice.springsecurity.config;
 
-import com.stephanodev.springsecurity.user.UserRepository;
+import com.jcpractice.springsecurity.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.stephanodev.springsecurity.user;
+package com.jcpractice.springsecurity.user;
 
 public enum Permission {
 

@@ -1,16 +1,17 @@
-package com.stephanodev.springsecurity.user;
+package com.jcpractice.springsecurity.user;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@Table(name = "_user")
+@Table(name = "user_table")
 public class User implements UserDetails {
 
     @Id
@@ -21,7 +22,11 @@ public class User implements UserDetails {
 
     private String name;
 
-    private  String password;
+    private String password;
+
+    private boolean accountNonLocked;
+
+    private LocalDateTime lockTime;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -34,14 +39,15 @@ public class User implements UserDetails {
         this.id = id;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
-
     public void setUsername(String username) {
         this.username = username;
     }
+
 
     public String getName() {
         return name;
@@ -51,7 +57,7 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-
+    @Override
     public String getPassword() {
         return password;
     }
@@ -68,6 +74,13 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    public LocalDateTime getLockTime() {
+        return lockTime;
+    }
+
+    public void setLockTime(LocalDateTime lockTime) {
+        this.lockTime = lockTime;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -76,7 +89,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonLocked;
     }
 
     @Override
@@ -97,10 +110,10 @@ public class User implements UserDetails {
 
         authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
 
-
         return authorities;
     }
 
-
-
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
 }

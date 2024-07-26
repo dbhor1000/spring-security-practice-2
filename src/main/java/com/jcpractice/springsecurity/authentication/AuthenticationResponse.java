@@ -1,4 +1,4 @@
-package com.stephanodev.springsecurity.authentication;
+package com.jcpractice.springsecurity.authentication;
 
 public class AuthenticationResponse {
 

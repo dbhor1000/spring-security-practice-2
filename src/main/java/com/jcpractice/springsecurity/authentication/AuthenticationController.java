@@ -1,6 +1,6 @@
-package com.stephanodev.springsecurity.authentication;
+package com.jcpractice.springsecurity.authentication;
 
-import com.stephanodev.springsecurity.user.User;
+import com.jcpractice.springsecurity.user.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,13 +1,13 @@
-package com.stephanodev.springsecurity.user;
+package com.jcpractice.springsecurity.user;
 
 import java.util.Arrays;
 import java.util.List;
 
 public enum Role {
 
-    CUSTOMER(Arrays.asList(Permission.READ_ALL_PRODUCTS)),
+    MODERATOR(Arrays.asList(Permission.READ_ALL_PRODUCTS)),
 
-    ADMIN(Arrays.asList(Permission.READ_ALL_PRODUCTS, Permission.SAVE_ONE_PRODUCT));
+    SUPER_ADMIN(Arrays.asList(Permission.READ_ALL_PRODUCTS, Permission.SAVE_ONE_PRODUCT));
 
     private List<Permission> permissions;
 
